@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source ~/.bin/colors
+
+echo -e $bold"ArchMan" $off
+#CPU
+echo -ne $bold$green
+echo -e CPU $off
+#dmidecode -t processor | grep "Current Speed" | sed 's/^[ \t]*//;s/[ \t]*$//'
+#lscpu | grep "CPU MHz" | cut -d : -f2 | sed 's/ //g' | tr -d '\n' | sed 's/....$//'; echo -n " MHz  @"
+inxi -C | grep Speed | cut -d m -f1 | sed 's/^[ \t]*//;s/[ \t]*$//'
+sensors coretemp-isa-0000 | grep Package | cut -d \( -f1 | cut -d \+ -f2
+
+
+#GPU
+echo -ne $green$bold
+echo -e GPU $off
+sensors radeon-pci-0100 | grep temp1 | cut -d \( -f1 | cut -d \+ -f2
