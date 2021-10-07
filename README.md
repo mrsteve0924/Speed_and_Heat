@@ -1,4 +1,4 @@
-# speed_and_heat
+## speed_and_heat
 Displays CPU &amp; GPU speed and temps
 
 Use with "watch -ct temps" to dynamically monitor  
